@@ -42,7 +42,7 @@ export default function Onboard({ onDone }: { onDone: () => void }) {
     query: { enabled: !!address, refetchInterval: 3000 },
   })
 
-  const issued: boolean[] = credStatus ? (credStatus[0] as boolean[]) : [false, false, false, false]
+  const issued: boolean[] = credStatus ? ([...credStatus[0]] as boolean[]) : [false, false, false, false]
   const verifiedCount = issued.filter(Boolean).length
   const allVerified = verifiedCount === 4
 

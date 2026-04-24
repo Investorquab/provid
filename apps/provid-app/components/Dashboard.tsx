@@ -29,7 +29,7 @@ export default function Dashboard({ onNavigate }: { onNavigate: (p: any) => void
     query: { enabled: !!address, refetchInterval: 4000 },
   })
 
-  const issued: boolean[] = credStatus ? (credStatus[0] as boolean[]) : [false, false, false, false]
+  const issued: boolean[] = credStatus ? ([...credStatus[0]] as boolean[]) : [false, false, false, false]
   const verifiedCount = issued.filter(Boolean).length
   const score = 400 + verifiedCount * 120
 
