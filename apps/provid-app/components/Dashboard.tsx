@@ -4,6 +4,7 @@ import { CONTRACT_ADDRESSES, CREDENTIAL_NAMES } from '@/lib/web3'
 import { CredentialIssuerABI } from '@/lib/abis/CredentialIssuer'
 import { IdentityVaultABI } from '@/lib/abis/IdentityVault'
 import { ProvidIdentityTokenABI } from '@/lib/abis/ProvidIdentityToken'
+import ChainGPT from '@/components/ChainGPT'
 
 export default function Dashboard({ onNavigate }: { onNavigate: (p: any) => void }) {
   const { address } = useAccount()
@@ -106,6 +107,10 @@ export default function Dashboard({ onNavigate }: { onNavigate: (p: any) => void
           </button>
         </div>
       )}
+      <ChainGPT
+        credentials={{ walletAge: issued[0], balance: issued[1], txCount: issued[2], fullKYC: issued[3], hasToken: !!hasToken }}
+        score={score}
+      />
     </div>
   )
 }
