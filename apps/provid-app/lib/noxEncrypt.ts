@@ -1,7 +1,7 @@
 export async function encryptWithNox(
   address: string,
   values: { walletAgeDays: number; balanceEth: number; txCount: number },
-  contractAddress: string
+  contractAddress: `0x${string}`
 ) {
   const { createViemHandleClient } = await import('@iexec-nox/handle')
   const { createWalletClient, custom } = await import('viem')
