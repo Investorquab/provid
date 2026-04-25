@@ -14,7 +14,7 @@ export default function Profile({ onNavigate }: { onNavigate: (p: any) => void }
     query: { enabled: !!address },
   })
 
-  const issued = credStatus ? (credStatus[0] as boolean[]) : [false, false, false, false]
+  const issued = credStatus ? ([...credStatus[0]] as boolean[]) : [false, false, false, false]
   const verifiedCount = issued.filter(Boolean).length
   const score = 400 + verifiedCount * 120
   const pct = Math.round((score / 880) * 100)
