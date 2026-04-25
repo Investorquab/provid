@@ -53,7 +53,7 @@ export default function AirdropPage() {
     query: { enabled: !!address && !!isRegistered && mounted },
   })
 
-  const issued: boolean[] = credStatus ? (credStatus[0] as boolean[]) : [false, false, false, false]
+  const issued: boolean[] = credStatus ? ([...credStatus[0]] as boolean[]) : [false, false, false, false]
   const verifiedCount = issued.filter(Boolean).length
 
   async function checkEligibility() {
