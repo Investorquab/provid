@@ -286,8 +286,8 @@ cd apps/demo-airdrop && npm run dev -- -p 3001
 
 ## Demo
 
-**Main app:** `https://provid.vercel.app`
-**Demo airdrop:** `https://provid-airdrop.vercel.app`
+**Main app:** https://provid-identity.vercel.app
+**Demo airdrop:** https://provid-airdropdemo.vercel.app
 
 ### Demo Flow
 1. Connect MetaMask (Arbitrum Sepolia)
