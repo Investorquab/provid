@@ -34,7 +34,7 @@ export default function ShareProof() {
   const issued: boolean[] = credStatus ? ([...credStatus[0]] as boolean[]) : [false, false, false, false]
   const verifiedCreds = [0, 1, 2, 3].filter(i => issued[i])
 
-  const proofLink = `https://provid.xyz/verify?user=${address}&creds=${verifiedCreds.join(',')}&token=${hasToken ? '1' : '0'}&network=arbitrum-sepolia`
+  const proofLink = `https://provid-airdropdemo.vercel.app/verify?user=${address}&creds=${verifiedCreds.join(',')}&token=${hasToken ? '1' : '0'}&network=arbitrum-sepolia`
 
   function copyLink() {
     navigator.clipboard.writeText(proofLink)

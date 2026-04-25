@@ -209,7 +209,7 @@ export default function AirdropPage() {
                 <div style={{ fontSize: '12px', color: '#888', marginBottom: '20px', lineHeight: 1.6 }}>
                   {!hasToken ? 'You need a PROVID Identity Token. Register at provid.xyz first.' : `Only ${verifiedCount}/4 credentials verified. Complete verification at provid.xyz.`}
                 </div>
-                <a href="http://localhost:3000" target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', padding: '14px', background: '#7c5cfc', border: 'none', borderRadius: '8px', color: '#fff', fontFamily: 'inherit', fontSize: '13px', fontWeight: 500, cursor: 'pointer', letterSpacing: '0.08em', textDecoration: 'none', textAlign: 'center' }}>
+                <a href="https://provid-identity.vercel.app" target="_blank" rel="noreferrer" style={{ display: 'block', width: '100%', padding: '14px', background: '#7c5cfc', border: 'none', borderRadius: '8px', color: '#fff', fontFamily: 'inherit', fontSize: '13px', fontWeight: 500, cursor: 'pointer', letterSpacing: '0.08em', textDecoration: 'none', textAlign: 'center' }}>
                   GET VERIFIED AT PROVID →
                 </a>
               </div>
@@ -248,7 +248,7 @@ export default function AirdropPage() {
         {/* PROVID branding */}
         <div style={{ marginTop: '32px', fontSize: '11px', color: '#333', letterSpacing: '0.08em', textAlign: 'center' }}>
           ELIGIBILITY VERIFIED BY{' '}
-          <a href="http://localhost:3000" target="_blank" rel="noreferrer" style={{ color: '#7c5cfc', textDecoration: 'none' }}>PROVID PROTOCOL</a>
+          <a href="https://provid-identity.vercel.app" target="_blank" rel="noreferrer" style={{ color: '#7c5cfc', textDecoration: 'none' }}>PROVID PROTOCOL</a>
           {' '}· BUILT ON IEXEC NOX · ARBITRUM SEPOLIA
         </div>
       </div>
