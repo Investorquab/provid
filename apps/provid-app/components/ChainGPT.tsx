@@ -24,8 +24,8 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
           stream: false,
         }),
       })
-      const data = await res.json()
-      setResponse(data?.choices?.[0]?.message?.content || 'No response.')
+      const text = await res.text()
+      setResponse(text.trim() || 'No response.')
     } catch (e) {
       setResponse('ChainGPT API error. Check your API key.')
     } finally {
