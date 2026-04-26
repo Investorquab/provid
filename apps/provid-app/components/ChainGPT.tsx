@@ -12,7 +12,7 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
     setLoading(true)
     setResponse('')
     try {
-      const res = await fetch('https://api.chaingpt.org/v1/chat/completions', {
+      const res = await fetch('https://api.chaingpt.org/chat/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
         body: JSON.stringify({
