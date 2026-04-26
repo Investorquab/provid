@@ -5,7 +5,7 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [response, setResponse] = useState('')
-  const [apiKey, setApiKey] = useState('')
+  const apiKey = '027bf8a1-f998-48c1-93b6-72be99452a01'
 
   async function askChainGPT(question: string) {
     if (!apiKey) { setResponse('Please enter your ChainGPT API key above.'); return }
@@ -45,7 +45,7 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
       </button>
       {open && (
         <div style={{ background: 'var(--bg-card)', border: '0.5px solid var(--border)', borderTop: 'none', borderRadius: '0 0 8px 8px', padding: '16px' }}>
-          <input type="password" placeholder="Enter ChainGPT API key..." value={apiKey} onChange={e => setApiKey(e.target.value)} style={{ width: '100%', padding: '8px 12px', background: 'var(--bg)', border: '0.5px solid var(--border)', borderRadius: '6px', color: 'var(--text)', fontFamily: 'inherit', fontSize: '12px', outline: 'none', marginBottom: '12px' }} />
+
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
             {questions.map(q => (
               <button key={q} onClick={() => askChainGPT(q)} disabled={loading} style={{ padding: '5px 10px', background: 'var(--bg)', border: '0.5px solid var(--border)', borderRadius: '20px', color: 'var(--text-muted)', cursor: 'pointer', fontFamily: 'inherit', fontSize: '11px' }}>{q}</button>
