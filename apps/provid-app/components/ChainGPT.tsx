@@ -16,7 +16,7 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
         body: JSON.stringify({
-          model: 'cgpt-4',
+          model: 'general_assistant',
           messages: [
             { role: 'system', content: 'You are an AI assistant for PROVID, a confidential identity protocol on iExec Nox. User credentials: walletAge=' + credentials.walletAge + ', balance=' + credentials.balance + ', txCount=' + credentials.txCount + ', token=' + credentials.hasToken + '. Keep answers to 2-3 sentences.' },
             { role: 'user', content: question }
