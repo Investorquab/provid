@@ -8,26 +8,19 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
   const apiKey = '027bf8a1-f998-48c1-93b6-72be99452a01'
 
   async function askChainGPT(question: string) {
-    if (!apiKey) { setResponse('Please enter your ChainGPT API key above.'); return }
     setLoading(true)
     setResponse('')
     try {
+      const q = 'You are an AI assistant for PROVID, a confidential identity protocol on iExec Nox. User credentials: walletAge=' + credentials.walletAge + ' balance=' + credentials.balance + ' txCount=' + credentials.txCount + ' hasToken=' + credentials.hasToken + ' score=' + score + '. Answer in 2-3 sentences: ' + question
       const res = await fetch('https://api.chaingpt.org/chat/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
-        body: JSON.stringify({
-          model: 'general_assistant',
-          messages: [
-            { role: 'system', content: 'You are an AI assistant for PROVID, a confidential identity protocol on iExec Nox. User credentials: walletAge=' + credentials.walletAge + ', balance=' + credentials.balance + ', txCount=' + credentials.txCount + ', token=' + credentials.hasToken + '. Keep answers to 2-3 sentences.' },
-            { role: 'user', content: question }
-          ],
-          stream: false,
-        }),
+        body: JSON.stringify({ model: 'general_assistant', question: q, chatHistory: 'off' }),
       })
       const text = await res.text()
       setResponse(text.trim() || 'No response.')
     } catch (e) {
-      setResponse('ChainGPT API error. Check your API key.')
+      setResponse('ChainGPT API error.')
     } finally {
       setLoading(false)
     }
@@ -45,7 +38,6 @@ export default function ChainGPT({ credentials, score }: { credentials: any, sco
       </button>
       {open && (
         <div style={{ background: 'var(--bg-card)', border: '0.5px solid var(--border)', borderTop: 'none', borderRadius: '0 0 8px 8px', padding: '16px' }}>
-
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '12px' }}>
             {questions.map(q => (
               <button key={q} onClick={() => askChainGPT(q)} disabled={loading} style={{ padding: '5px 10px', background: 'var(--bg)', border: '0.5px solid var(--border)', borderRadius: '20px', color: 'var(--text-muted)', cursor: 'pointer', fontFamily: 'inherit', fontSize: '11px' }}>{q}</button>
