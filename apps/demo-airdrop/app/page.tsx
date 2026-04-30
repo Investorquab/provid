@@ -69,6 +69,7 @@ export default function AirdropPage() {
 
   async function claimAirdrop() {
     setStatus('claimed')
+    setTimeout(() => window.open('https://sepolia.arbiscan.io/token/0x808eED65Ff29d8b32059424D2B78656ba0E98156', '_blank'), 1500)
   }
 
   if (!mounted) return null
